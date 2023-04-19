@@ -87,7 +87,7 @@ This tool expects three arguments: relative path and name of the ggml converted 
 ### Code generation
 To start using the model to generate Python code from natural language prompts you can use the *codegen* tool that has already been built from C++ source code in one of the previous steps. Here is how you can do it:     
 ````
-./ggml/build/bin/codegen -t 10 -m ../../codegen-2B-mono-gptj/ggml-model-quant.bin -p 'import os
+./ggml/build/bin/codegen -t 10 -m ./codegen-2B-mono-gptj/ggml-model-quant.bin -p 'import os
 
                                           import json
                                           def main():
@@ -102,4 +102,5 @@ where:
 ## Models
 CodeGen mono models quantized through this procedure will be made available publicy in the Hugging Face Hub. Here are their links:  
   
+:hugs: [CodeGen 350M mono](https://huggingface.co/Guglielmo/CodeGen-350M-mono-ggml-quant)  
 :hugs: [CodeGen 2B mono](https://huggingface.co/Guglielmo/CodeGen-2B-mono-ggml-quant)  
