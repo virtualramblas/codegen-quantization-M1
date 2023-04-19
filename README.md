@@ -63,14 +63,21 @@ git lfs checkout *.bin
 ````
   
 You can notice from the list of commands above that we are filtering to pull only the files needed (the .bin PyTorch model weights and the related JSON configuration file) and excluding two unnecessary .tar.zst large files from download. Download time depends on the network: please be patient as the 2B model weights file size is 5.69 GB.    
-We ar not done yet, as we need to add the vocab and added_token files from the original CodeGen model. They can be downloaded from the *Salesforce*'s Hugging Face space and placed in the same directory as for the ported model (using wget in this tutorial, but you can use a different tool or download them manually:  
+We ar not done yet, as we need to add the *vocab* and *added_token* files from the original CodeGen model. They can be downloaded from the *Salesforce*'s Hugging Face space and placed in the same directory as for the ported model (using wget in this tutorial, but you can use a different tool or download them manually):  
   
 ````
 wget https://huggingface.co/Salesforce/codegen-2B-mono/raw/main/vocab.json
 wget https://huggingface.co/Salesforce/codegen-2B-mono/raw/main/added_tokens.json
 ````
 ### Model conversion
-To be written.  
+A Python script to convert the GPT-J CodeGen model to ggml is provided as part of the turbopilot repo. Move back to the parent directory of the one where the model has been downloaded and then execute the script:  
+  
+````
+cd ..
+python ./convert-codegen-to-ggml.py ./codegen-2B-multi-gptj 0
+````
+  
+The scripts expects 2 mandatory arguments: the first one is the path of the directory where the original model has been downloaded, the second one indicates the floating point type (0 = float32, 1 = float16). The converted model is saved in the same directory as for the original model and would be named as *ggml-model-f32.bin* (or *ggml-model-f16.bin*, depending on the selected floating point type).  
 ### Model quantization
 To be written.  
 ### Code generation
