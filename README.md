@@ -47,12 +47,12 @@ cd ../..
 ````  
 ### Model download
 The instructions provided in this paragraph and the next three refer to the CodeGen 2B mono model, but they apply to anyone else belonging to the same family (345M, 2B, 6B, 16B).  
-Porting of the CodeGen mono models to GPT-J are already available from moyix in the Hugging Face Hub. So, we are not reinventing the wheel and going to use these as starting point.  
+Porting of the CodeGen mono models to GPT-J are already available from *moyix* in the Hugging Face Hub. So, we are not reinventing the wheel and going to use these as starting point.  
 Enable Git LFS first:  
   
 ````git lfs install````
   
-Then, with reference to the 2B mono, downoload it from HF using git:  
+Then, with reference to the 2B mono, download it from HF using git:  
   
 ````
 GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/moyix/codegen-2B-mono-gptj
@@ -63,7 +63,12 @@ git lfs checkout *.bin
 ````
   
 You can notice from the list of commands above that we are filtering to pull only the files needed (the .bin PyTorch model weights and the related JSON configuration file) and excluding two unnecessary .tar.zst large files from download. Download time depends on the network: please be patient as the 2B model weights file size is 5.69 GB.    
-To be completed.  
+We ar not done yet, as we need to add the vocab and added_token files from the original CodeGen model. They can be downloaded from the *Salesforce*'s Hugging Face space and placed in the same directory as for the ported model (using wget in this tutorial, but you can use a different tool or download them manually:  
+  
+````
+wget https://huggingface.co/Salesforce/codegen-2B-mono/raw/main/vocab.json
+wget https://huggingface.co/Salesforce/codegen-2B-mono/raw/main/added_tokens.json
+````
 ### Model conversion
 To be written.  
 ### Model quantization
