@@ -79,6 +79,10 @@ python ./convert-codegen-to-ggml.py ./codegen-2B-multi-gptj 0
   
 The scripts expects 2 mandatory arguments: the first one is the path of the directory where the original model has been downloaded, the second one indicates the floating point type (0 = float32, 1 = float16). The converted model is saved in the same directory as for the original model and would be named as *ggml-model-f32.bin* (or *ggml-model-f16.bin*, depending on the selected floating point type).  
 ### Model quantization
-To be written.  
+Quantization of the model can be done through the *codegen-quantize* tool that has already been built from C++ source code in one of the previous steps. Here is how you can use it:  
+  
+````./ggml/build/bin/codegen-quantize ./codegen-2B-mono-gptj/ggml-model-f32.bin ./codegen-2B-mono-gptj/ggml-model-quant.bin 2````
+  
+This tool expects three arguments: relative path and name of the ggml converted model, destination path and name of the quantized model, .  
 ### Code generation
 To be written.  
