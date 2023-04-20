@@ -74,7 +74,7 @@ A Python script to convert the GPT-J CodeGen model to ggml is provided as part o
   
 ````
 cd ..
-python ./convert-codegen-to-ggml.py ./codegen-2B-multi-gptj 0
+python ./convert-codegen-to-ggml.py ./codegen-2B-mono-gptj 0
 ````
   
 The scripts expects 2 mandatory arguments: the first one is the path of the directory where the original model has been downloaded, the second one indicates the floating point type (0 = float32, 1 = float16). The converted model is saved in the same directory as for the original model and would be named as *ggml-model-f32.bin* (or *ggml-model-f16.bin*, depending on the selected floating point type).  
@@ -104,3 +104,4 @@ CodeGen mono models quantized through this procedure will be made available publ
   
 :hugs: [CodeGen 350M mono](https://huggingface.co/Guglielmo/CodeGen-350M-mono-ggml-quant)  
 :hugs: [CodeGen 2B mono](https://huggingface.co/Guglielmo/CodeGen-2B-mono-ggml-quant)  
+:hugs: [CodeGen 6B mono](https://huggingface.co/Guglielmo/CodeGen-6B-mono-ggml-quant)  
