@@ -96,7 +96,7 @@ To start using the model to generate Python code from natural language prompts y
 ````
     
 where:  
-* -t is the number of thread;
+* -t is the number of threads;
 * -m is the path of the quantized model;
 * -p is the text prompt.  
 ## Models
